@@ -1,3 +1,5 @@
+import '~/styles/global.scss';
+
 import { NextPage } from 'next';
 import { AppProps } from 'next/app';
 import { AppType } from 'next/dist/shared/lib/utils';
@@ -31,6 +33,7 @@ const MyApp = (({ Component, pageProps }: AppPropsWithLayout) => {
         withNormalizeCSS
         theme={{
           /** Put your mantine theme override here */
+          fontFamily: 'Poppins',
           colorScheme: 'light',
         }}
       >
