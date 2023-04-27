@@ -1,4 +1,4 @@
-import { MainSection, Nav } from '~/features/home-page/components';
+import { MainSection, Nav } from '~/features/home-page';
 
 export default function HomePage() {
   return (
