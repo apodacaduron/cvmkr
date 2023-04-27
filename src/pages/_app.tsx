@@ -35,6 +35,15 @@ const MyApp = (({ Component, pageProps }: AppPropsWithLayout) => {
           /** Put your mantine theme override here */
           fontFamily: 'Poppins',
           colorScheme: 'light',
+          components: {
+            Title: {
+              styles: {
+                root: {
+                  fontWeight: 500,
+                },
+              },
+            },
+          },
         }}
       >
         {getLayout(<Component {...pageProps} />)}
