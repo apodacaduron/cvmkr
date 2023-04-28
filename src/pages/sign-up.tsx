@@ -4,25 +4,18 @@ import { routePath } from '~/data/route-path';
 import { AuthBackground, FormContainer } from '~/features/auth-page';
 import styles from '~/styles/AuthPage.module.scss';
 
-import {
-  Anchor,
-  Button,
-  Divider,
-  Flex,
-  Group,
-  Stack,
-  Text,
-  TextInput,
-  Title,
-} from '@mantine/core';
+import { Anchor, Button, Divider, Flex, Stack, Text, TextInput, Title } from '@mantine/core';
 
 export default function SignUpPage() {
   return (
     <Flex h="100vh">
-      <Link href={routePath.HOME}>
-        <a className={styles['auth-logo']}>
-          <Image src="/assets/cvmkr-black.svg" width={105} height={19} />
-        </a>
+      <Link href={routePath.HOME} className={styles["auth-logo"]}>
+        <Image
+          src="/assets/cvmkr-black.svg"
+          width={105}
+          height={19}
+          alt="logo"
+        />
       </Link>
       <FormContainer>
         <Stack>
@@ -31,7 +24,14 @@ export default function SignUpPage() {
             <Text color="dimmed">Get started now for free</Text>
           </Stack>
           <Button
-            leftIcon={<Image src="/assets/google.svg" width={16} height={16} />}
+            leftIcon={
+              <Image
+                src="/assets/google.svg"
+                width={16}
+                height={16}
+                alt="google logo"
+              />
+            }
             variant="default"
           >
             Sign up with Google
@@ -65,9 +65,7 @@ export default function SignUpPage() {
             <Button>Sign up</Button>
             <Text color="dimmed">
               Already have an account?
-              <Link href={routePath.SIGN_IN} passHref>
-                <Anchor> Log in</Anchor>
-              </Link>
+              <Link href={routePath.SIGN_IN}> Log in</Link>
             </Text>
           </Stack>
         </Stack>

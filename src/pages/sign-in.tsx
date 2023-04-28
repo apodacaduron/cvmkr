@@ -4,25 +4,18 @@ import { routePath } from '~/data/route-path';
 import { AuthBackground, FormContainer } from '~/features/auth-page';
 import styles from '~/styles/AuthPage.module.scss';
 
-import {
-  Anchor,
-  Button,
-  Divider,
-  Flex,
-  Group,
-  Stack,
-  Text,
-  TextInput,
-  Title,
-} from '@mantine/core';
+import { Anchor, Button, Divider, Flex, Group, Stack, Text, TextInput, Title } from '@mantine/core';
 
 export default function SignInPage() {
   return (
     <Flex h="100vh">
-      <Link href={routePath.HOME}>
-        <a className={styles['auth-logo']}>
-          <Image src="/assets/cvmkr-black.svg" width={105} height={19} />
-        </a>
+      <Link href={routePath.HOME} className={styles["auth-logo"]}>
+        <Image
+          src="/assets/cvmkr-black.svg"
+          width={105}
+          height={19}
+          alt="logo"
+        />
       </Link>
       <FormContainer>
         <Stack>
@@ -31,7 +24,14 @@ export default function SignInPage() {
             <Text color="dimmed">Welcome back please enter your details</Text>
           </Stack>
           <Button
-            leftIcon={<Image src="/assets/google.svg" width={16} height={16} />}
+            leftIcon={
+              <Image
+                src="/assets/google.svg"
+                width={16}
+                height={16}
+                alt="google logo"
+              />
+            }
             variant="default"
           >
             Log in with Google
@@ -51,18 +51,14 @@ export default function SignInPage() {
               type="password"
             />
             <Group position="right">
-              <Link href={routePath.FORGOT_PASSWORD} passHref>
-                <Anchor>Forgot password</Anchor>
-              </Link>
+              <Link href={routePath.FORGOT_PASSWORD}>Forgot password</Link>
             </Group>
           </Stack>
           <Stack spacing={32}>
             <Button>Log in</Button>
             <Text color="dimmed">
               Don't have an account?
-              <Link href={routePath.SIGN_UP} passHref>
-                <Anchor> Sign up for free</Anchor>
-              </Link>
+              <Link href={routePath.SIGN_UP}> Sign up for free</Link>
             </Text>
           </Stack>
         </Stack>
