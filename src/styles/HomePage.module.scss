@@ -1,0 +1,57 @@
+.main-section {
+  height: 100vh;
+  background-image: url('/assets/pattern.svg');
+  background-size: cover;
+  overflow: hidden;
+
+  &__content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+    text-align: center;
+    max-width: 1200px;
+    margin: 0 auto 0 auto;
+    height: 100%;
+    padding: 158px 16px 0 16px;
+
+    &__title {
+      line-height: 90px;
+      font-size: 90px;
+      margin: 0;
+    }
+    &__subtitle {
+      font-size: 24px;
+      line-height: 48px;
+      color: #636363;
+      margin-top: 0;
+    }
+    &__image {
+      object-fit: contain;
+    }
+  }
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 64px;
+  width: 100%;
+  position: fixed;
+}
+
+@media only screen and (max-width: 800px) {
+  .main-section {
+    &__content {
+      &__title {
+        line-height: 64px;
+        font-size: 64px;
+      }
+      &__subtitle {
+        font-size: 18px;
+        line-height: 32px;
+      }
+    }
+  }
+}
