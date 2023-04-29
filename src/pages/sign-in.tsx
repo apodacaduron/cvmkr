@@ -1,10 +1,11 @@
+import { getSession, signIn } from 'next-auth/react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { routePath } from '~/data/route-path';
 import { AuthBackground, FormContainer } from '~/features/auth-page';
 import styles from '~/styles/AuthPage.module.scss';
 
-import { Anchor, Button, Divider, Flex, Group, Stack, Text, TextInput, Title } from '@mantine/core';
+import { Button, Divider, Flex, Group, Stack, Text, TextInput, Title } from '@mantine/core';
 
 export default function SignInPage() {
   return (
@@ -33,6 +34,7 @@ export default function SignInPage() {
               />
             }
             variant="default"
+            onClick={() => signIn("google")}
           >
             Log in with Google
           </Button>
@@ -66,4 +68,19 @@ export default function SignInPage() {
       <AuthBackground />
     </Flex>
   );
+}
+
+export async function getServerSideProps(context: any) {
+  const { req } = context;
+  const session = await getSession({ req });
+
+  if (session) {
+    return {
+      redirect: { destination: routePath.HOME },
+    };
+  }
+
+  return {
+    props: {},
+  };
 }
