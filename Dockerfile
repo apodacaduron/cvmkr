@@ -14,7 +14,7 @@ COPY prisma ./prisma
 RUN yarn install
 RUN yarn build && yarn --production
 
-FROM node:16-alpine
+FROM node:18-alpine3.16
 WORKDIR /app
 COPY --from=build /app/node_modules ./node_modules
 COPY --from=build /app/public ./public
