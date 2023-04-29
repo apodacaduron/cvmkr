@@ -1,28 +1,22 @@
+import { getSession, signIn } from 'next-auth/react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { routePath } from '~/data/route-path';
 import { AuthBackground, FormContainer } from '~/features/auth-page';
 import styles from '~/styles/AuthPage.module.scss';
 
-import {
-  Anchor,
-  Button,
-  Divider,
-  Flex,
-  Group,
-  Stack,
-  Text,
-  TextInput,
-  Title,
-} from '@mantine/core';
+import { Button, Divider, Flex, Stack, Text, TextInput, Title } from '@mantine/core';
 
 export default function SignUpPage() {
   return (
     <Flex h="100vh">
-      <Link href={routePath.HOME}>
-        <a className={styles['auth-logo']}>
-          <Image src="/assets/cvmkr-black.svg" width={105} height={19} />
-        </a>
+      <Link href={routePath.HOME} className={styles["auth-logo"]}>
+        <Image
+          src="/assets/cvmkr-black.svg"
+          width={105}
+          height={19}
+          alt="logo"
+        />
       </Link>
       <FormContainer>
         <Stack>
@@ -31,8 +25,16 @@ export default function SignUpPage() {
             <Text color="dimmed">Get started now for free</Text>
           </Stack>
           <Button
-            leftIcon={<Image src="/assets/google.svg" width={16} height={16} />}
+            leftIcon={
+              <Image
+                src="/assets/google.svg"
+                width={16}
+                height={16}
+                alt="google logo"
+              />
+            }
             variant="default"
+            onClick={() => signIn("google")}
           >
             Sign up with Google
           </Button>
@@ -65,9 +67,7 @@ export default function SignUpPage() {
             <Button>Sign up</Button>
             <Text color="dimmed">
               Already have an account?
-              <Link href={routePath.SIGN_IN} passHref>
-                <Anchor> Log in</Anchor>
-              </Link>
+              <Link href={routePath.SIGN_IN}> Log in</Link>
             </Text>
           </Stack>
         </Stack>
@@ -75,4 +75,19 @@ export default function SignUpPage() {
       <AuthBackground />
     </Flex>
   );
+}
+
+export async function getServerSideProps(context: any) {
+  const { req } = context;
+  const session = await getSession({ req });
+
+  if (session) {
+    return {
+      redirect: { destination: routePath.HOME },
+    };
+  }
+
+  return {
+    props: {},
+  };
 }
