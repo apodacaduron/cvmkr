@@ -20,7 +20,7 @@ COPY --from=build /app/node_modules ./node_modules
 COPY --from=build /app/public ./public
 COPY --from=build /app/.next ./.next
 COPY --from=build /app/next.config.mjs ./next.config.mjs
-COPY --from=build /app/src/server/env.mjs ./src/env.mjs
+COPY --from=build /app/src/env.mjs ./src/env.mjs
 
 EXPOSE 3000
 CMD ["node_modules/.bin/next", "start"]
