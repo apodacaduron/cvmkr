@@ -1,3 +1,4 @@
+import type { CtxOrReq } from "next-auth/client/_utils";
 import { getSession, signIn } from 'next-auth/react';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -77,7 +78,7 @@ export default function SignUpPage() {
   );
 }
 
-export async function getServerSideProps(context: any) {
+export async function getServerSideProps(context: CtxOrReq) {
   const { req } = context;
   const session = await getSession({ req });
 

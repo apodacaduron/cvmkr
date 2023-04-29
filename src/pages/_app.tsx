@@ -1,14 +1,14 @@
 import '~/styles/globals.css';
 
-import { NextPage } from 'next';
 import { SessionProvider } from 'next-auth/react';
-import { ReactElement, ReactNode } from 'react';
 import { api } from '~/utils/api';
 
 import { MantineProvider } from '@mantine/core';
 
+import type { NextPage } from "next";
+import type { ReactElement, ReactNode } from "react";
 import type { Session } from "next-auth";
-import type { AppProps, AppType } from "next/app";
+import type { AppProps } from "next/app";
 export type NextPageWithLayout = NextPage & {
   getLayout?: (page: ReactElement) => ReactNode;
 };

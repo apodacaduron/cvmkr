@@ -1,3 +1,4 @@
+import type { CtxOrReq } from "next-auth/client/_utils";
 import { getSession, signIn } from 'next-auth/react';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -59,7 +60,7 @@ export default function SignInPage() {
           <Stack spacing={32}>
             <Button>Log in</Button>
             <Text color="dimmed">
-              Don't have an account?
+              Don&apos;t have an account?
               <Link href={routePath.SIGN_UP}> Sign up for free</Link>
             </Text>
           </Stack>
@@ -70,7 +71,7 @@ export default function SignInPage() {
   );
 }
 
-export async function getServerSideProps(context: any) {
+export async function getServerSideProps(context: CtxOrReq) {
   const { req } = context;
   const session = await getSession({ req });
 
