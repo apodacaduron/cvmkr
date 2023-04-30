@@ -1,9 +1,14 @@
 import type { CtxOrReq } from "next-auth/client/_utils";
 import { getSession } from "next-auth/react";
 import { routePath } from "~/data/route-path";
+import { Nav } from "~/features/designs-page";
 
 export default function DesignsPage() {
-  return <>designs page</>;
+  return (
+    <>
+      <Nav />
+    </>
+  );
 }
 
 export async function getServerSideProps(context: CtxOrReq) {
