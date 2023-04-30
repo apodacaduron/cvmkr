@@ -2,10 +2,6 @@ FROM node:18-alpine3.16 AS build
 WORKDIR /app
 
 ARG DATABASE_URL
-ARG NEXTAUTH_SECRET
-ARG NEXTAUTH_URL
-ARG GOOGLE_CLIENT_ID
-ARG GOOGLE_CLIENT_SECRET
 
 COPY package.json package.json
 COPY yarn.lock yarn.lock
@@ -20,6 +16,12 @@ RUN yarn build && yarn --production
 
 FROM node:18-alpine3.16
 WORKDIR /app
+
+ARG NEXTAUTH_SECRET
+ARG NEXTAUTH_URL
+ARG GOOGLE_CLIENT_ID
+ARG GOOGLE_CLIENT_SECRET
+
 COPY --from=build /app/node_modules ./node_modules
 COPY --from=build /app/public ./public
 COPY --from=build /app/.next ./.next
