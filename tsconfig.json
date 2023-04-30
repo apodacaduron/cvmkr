@@ -29,8 +29,7 @@
     "**/*.ts",
     "**/*.tsx",
     "**/*.cjs",
-    "**/*.js",
-    "src/env.js"
+    "**/*.mjs"
   ],
   "exclude": ["node_modules"]
 }
