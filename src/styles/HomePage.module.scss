@@ -1,6 +1,6 @@
 .main-section {
   height: 100vh;
-  background-image: url('/assets/pattern.svg');
+  background-image: url("/assets/pattern.svg");
   background-size: cover;
   overflow: hidden;
 
@@ -27,6 +27,7 @@
       margin-top: 0;
     }
     &__image {
+      width: 100%;
       object-fit: contain;
     }
   }

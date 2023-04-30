@@ -1,9 +1,19 @@
-import Image from 'next/image';
-import styles from '~/styles/HomePage.module.scss';
+import { useSession } from "next-auth/react";
+import Image from "next/image";
+import Link from "next/link";
+import { routePath } from "~/data/route-path";
+import styles from "~/styles/HomePage.module.scss";
 
-import { Button } from '@mantine/core';
+import { Button } from "@mantine/core";
 
 export default function MainSection() {
+  const session = useSession();
+
+  function getStartedRoute() {
+    if (session.data) return routePath.DESIGNS;
+    return routePath.SIGN_IN;
+  }
+
   return (
     <section className={styles["main-section"]}>
       <div className={styles["main-section__content"]}>
@@ -14,7 +24,9 @@ export default function MainSection() {
           <p className={styles["main-section__content__subtitle"]}>
             With our tool you can create and edit your CV’s fast and easy.
           </p>
-          <Button>Get started</Button>
+          <Link href={getStartedRoute()}>
+            <Button>Get started</Button>
+          </Link>
         </div>
         <Image
           className={styles["main-section__content__image"]}
