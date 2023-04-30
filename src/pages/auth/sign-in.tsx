@@ -1,12 +1,21 @@
 import type { CtxOrReq } from "next-auth/client/_utils";
-import { getSession, signIn } from 'next-auth/react';
-import Image from 'next/image';
-import Link from 'next/link';
-import { routePath } from '~/data/route-path';
-import { AuthBackground, FormContainer } from '~/features/auth-page';
-import styles from '~/styles/AuthPage.module.scss';
+import { getSession, signIn } from "next-auth/react";
+import Image from "next/image";
+import Link from "next/link";
+import { routePath } from "~/data/route-path";
+import { AuthBackground, FormContainer } from "~/features/auth-page";
+import styles from "~/styles/AuthPage.module.scss";
 
-import { Button, Divider, Flex, Group, Stack, Text, TextInput, Title } from '@mantine/core';
+import {
+  Button,
+  Divider,
+  Flex,
+  Group,
+  Stack,
+  Text,
+  TextInput,
+  Title,
+} from "@mantine/core";
 
 export default function SignInPage() {
   return (
