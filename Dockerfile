@@ -2,6 +2,10 @@ FROM node:18-alpine3.16 AS build
 WORKDIR /app
 
 ARG DATABASE_URL
+ARG NEXTAUTH_SECRET
+ARG NEXTAUTH_URL
+ARG GOOGLE_CLIENT_ID
+ARG GOOGLE_CLIENT_SECRET
 
 COPY package.json package.json
 COPY yarn.lock yarn.lock
