@@ -1,9 +1,10 @@
-import '~/styles/globals.css';
+import "~/styles/globals.css";
 
-import { SessionProvider } from 'next-auth/react';
-import { api } from '~/utils/api';
+import { SessionProvider } from "next-auth/react";
+import { mantineTheme } from "~/data/mantine-theme";
+import { api } from "~/utils/api";
 
-import { MantineProvider } from '@mantine/core';
+import { MantineProvider } from "@mantine/core";
 
 import type { NextPage } from "next";
 import type { ReactElement, ReactNode } from "react";
@@ -25,24 +26,7 @@ const MyApp = ({
 
   return (
     <>
-      <MantineProvider
-        withGlobalStyles
-        withNormalizeCSS
-        theme={{
-          /** Put your mantine theme override here */
-          fontFamily: "Poppins",
-          colorScheme: "light",
-          components: {
-            Title: {
-              styles: {
-                root: {
-                  fontWeight: 500,
-                },
-              },
-            },
-          },
-        }}
-      >
+      <MantineProvider withGlobalStyles withNormalizeCSS theme={mantineTheme}>
         <SessionProvider session={session as Session | null}>
           {getLayout(<Component {...pageProps} />)}
         </SessionProvider>
